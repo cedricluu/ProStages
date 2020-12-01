@@ -26,4 +26,15 @@ class ProStagesController extends AbstractController
         }
 
 
+                /**
+                 * @Route("/formations", name="pro_stages-formations")
+                 */
+                public function afficherFormations()
+                {
+                    return $this->render('pro_stages/affichageFormations.html.twig');
+                }
+
+
+
+
 }
