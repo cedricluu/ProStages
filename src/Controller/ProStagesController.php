@@ -9,12 +9,21 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProStagesController extends AbstractController
 {
     /**
-     * @Route("/pro/stages", name="pro_stages")
+     * @Route("/", name="pro_stages-")
      */
-    public function index(): Response
+    public function index()
     {
-        return $this->render('pro_stages/index.html.twig', [
-            'controller_name' => 'ProStagesController',
-        ]);
+        return $this->render('pro_stages/index.html.twig');
     }
+
+
+        /**
+         * @Route("/entreprises", name="pro_stages-entreprises")
+         */
+        public function afficherEntreprises()
+        {
+            return $this->render('pro_stages/affichageEntreprises.html.twig');
+        }
+
+
 }
