@@ -1,0 +1,3 @@
+pro_stages-accueil:
+    path: /accueil
+    controller: App\Controller\ProStagesController::index
