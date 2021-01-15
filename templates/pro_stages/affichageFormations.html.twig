@@ -1,8 +1,6 @@
 
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProStagesController!{% endblock %}
-
 {% block body %}
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
@@ -11,5 +9,12 @@
 
 <div class="example-wrapper">
     <h1> Cette page affichera la liste des formations de l'IUT </h1>
+
+    {% for formation in formations}
+    <tr>
+      <td>{{formation.nom}}</td>
+      <td>{{formation.description}}</td>
+    </tr>
+    {% endfor %}
 </div>
 {% endblock %}

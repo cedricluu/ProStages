@@ -1,6 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProStagesController!{% endblock %}
 
 {% block body %}
 <style>
@@ -10,5 +9,12 @@
 
 <div class="example-wrapper">
     <h1>Cette page affichera le descriptif du stage ayant pour identifiant {{idStage}}   </h1>
+    <h2>{{stage.intitule}}</h2>
+    <table>
+        <tr><td>Mission:</td><td><p>{{stage.mission}}</p></td></tr>
+        <tr><td>Adresse:</td><td>{{stage.adresse}}</td></tr>
+        <tr><td>Entreprise:</td><td>{{stage.entreprise}}</td></tr>
+        <tr><td>Formation:</td><td>{{stage.formation}}</td></tr>
+    </table>
 </div>
 {% endblock %}

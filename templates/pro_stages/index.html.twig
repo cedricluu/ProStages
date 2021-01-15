@@ -10,5 +10,16 @@
 
 <div class="example-wrapper">
     <h1> Bienvenue sur la page d'accueil de {{ controller_name }} </h1>
+    <table border="2px black">
+    {% for stage in stages %}
+      <tr>
+        <td>{{stage.intitule}}</td>
+        <td>{{stage.mission}}</td>
+        <td>{{stage.adresse}}</td>
+        <td>{{stage.entreprise}}</td>
+        <td>{{stage.formation}}</td>
+      </tr>
+      {% endfor %}
+    </table>
 </div>
 {% endblock %}
