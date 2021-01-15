@@ -8,13 +8,17 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Cette page affichera le descriptif du stage ayant pour identifiant {{idStage}}   </h1>
-    <h2>{{stage.intitule}}</h2>
+{% for Unstage in stage %}
+    <h1>Cette page affichera le descriptif du stage ayant pour identifiant {{ Unstage.id }}   </h1>
+    <h2>{{Unstage.intitule}}</h2>
     <table>
-        <tr><td>Mission:</td><td><p>{{stage.mission}}</p></td></tr>
-        <tr><td>Adresse:</td><td>{{stage.adresse}}</td></tr>
-        <tr><td>Entreprise:</td><td>{{stage.entreprise}}</td></tr>
-        <tr><td>Formation:</td><td>{{stage.formation}}</td></tr>
+        <tr><td>Mission:</td><td><p>{{Unstage.mission}}</p></td></tr>
+        <tr><td>Adresse:</td><td>{{Unstage.adresseMail}}</td></tr>
+        <tr><td>Entreprise:</td><td>{{Unstage.entreprise.nom}}</td></tr>
+        <tr><td>Formation:</td><td>        {% for formationCourante in Unstage.formation %}
+                                              {{ formationCourante.nom }}{% if loop.last == false %},{% endif %}
+                                            {% endfor %}</td></td></tr>
     </table>
+    {% endfor %}
 </div>
 {% endblock %}

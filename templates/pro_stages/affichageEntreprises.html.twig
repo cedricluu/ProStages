@@ -12,7 +12,11 @@
 </div>
 <div class="container-fluid">
 	<div class="row">
-  {% for entreprise in entreprises}
+  <table border="2px black" align="center">
+  <tr>
+  <th>Nom</th><th>Activite</th><th>Adresse</th>
+  </tr>
+  {% for entreprise in entreprises %}
   <tr>
     <td>{{entreprise.nom}}</td>
     <td>{{entreprise.activite}}</td>

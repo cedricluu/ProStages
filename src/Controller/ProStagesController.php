@@ -5,6 +5,10 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Stage;
+use App\Entity\Entreprise;
+use App\Entity\Formation;
+
 
 class ProStagesController extends AbstractController
 {
@@ -13,7 +17,11 @@ class ProStagesController extends AbstractController
   */
   public function index()
   {
-    return $this->render('pro_stages/index.html.twig', [ 'controller_name' => "ProStages", ]);
+    $lsstages = $this->getDoctrine()->getRepository(Stage::class);
+    $stages=$lsstages->findAllAvecNomEntreprise();
+
+
+    return $this->render('pro_stages/index.html.twig', [ 'controller_name' => "ProStages",'stages'=> $stages, 'formation'=>"test", ]);
   }
 
 
@@ -22,7 +30,9 @@ class ProStagesController extends AbstractController
   */
   public function afficherEntreprises()
   {
-    return $this->render('pro_stages/affichageEntreprises.html.twig');
+    $lsEntreprise = $this->getDoctrine()->getRepository(Entreprise::class);
+    $entreprises=$lsEntreprise->findAll();
+    return $this->render('pro_stages/affichageEntreprises.html.twig', ['entreprises'=> $entreprises]);
   }
 
 
@@ -31,17 +41,21 @@ class ProStagesController extends AbstractController
   */
   public function afficherFormations()
   {
-    return $this->render('pro_stages/affichageFormations.html.twig');
+    $lsFormations = $this->getDoctrine()->getRepository(Formation::class);
+    $formations=$lsFormations->findAll();
+    return $this->render('pro_stages/affichageFormations.html.twig', [ 'formations'=>$formations]);
   }
 
 
 
   /**
-  * @Route("/stages", name="pro_stages-stages")
+  * @Route("/stages/{id}", name="pro_stages-stages")
   */
-  public function afficherStages()
+  public function afficherStages($id)
   {
-    return $this->render('pro_stages/affichageStages.html.twig', ['idStage' =>21]);
+    $lsstages = $this->getDoctrine()->getRepository(Stage::class);
+    $stages=$lsstages->findByIdStage($id);
+    return $this->render('pro_stages/affichageStages.html.twig', ['stage' =>$stages]);
   }
 
 

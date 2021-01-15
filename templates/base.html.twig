@@ -6,6 +6,13 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+      {% block menu %}
+      <ul>
+      <li><a type="button" href="{{ path('pro_stages-formations' )}}">Formations</a></li>
+      <li><a type="button" href="{{ path('pro_stages-entreprises' )}}">Entreprises</a></li>
+      <li><a type="button" href="{{ path('pro_stages-' )}}">Stages</a></li>
+      </ul>
+      {% endblock %}
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

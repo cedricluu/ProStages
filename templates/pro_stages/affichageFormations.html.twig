@@ -9,12 +9,13 @@
 
 <div class="example-wrapper">
     <h1> Cette page affichera la liste des formations de l'IUT </h1>
-
-    {% for formation in formations}
+    <table border="2px black" align="center">
+    {% for formation in formations %}
     <tr>
       <td>{{formation.nom}}</td>
       <td>{{formation.description}}</td>
     </tr>
     {% endfor %}
+    </table>
 </div>
 {% endblock %}

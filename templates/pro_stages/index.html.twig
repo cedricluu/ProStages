@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProStagesController!{% endblock %}
+{% block title %}ProStages{% endblock %}
+
 
 {% block body %}
 <style>
@@ -15,9 +16,16 @@
       <tr>
         <td>{{stage.intitule}}</td>
         <td>{{stage.mission}}</td>
-        <td>{{stage.adresse}}</td>
-        <td>{{stage.entreprise}}</td>
-        <td>{{stage.formation}}</td>
+        <td>{{stage.adresseMail}}</td>
+        <td>{{stage.entreprise.nom}}</td>
+        <td>
+        {% for formationCourante in stage.formation %}
+          {{ formationCourante.nom }}{% if loop.last == false %},{% endif %}
+        {% endfor %}</td>
+        <td>
+        <a type="button" href="{{ path('pro_stages-stages', {'id' : stage.id })}}"> Voir </a>
+        </td>
+
       </tr>
       {% endfor %}
     </table>
